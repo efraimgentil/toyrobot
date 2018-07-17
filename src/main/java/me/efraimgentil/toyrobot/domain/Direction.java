@@ -4,6 +4,11 @@ public enum Direction {
 
     NORTH {
         @Override
+        public Move gettMove(int currentX, int currentY) {
+            return new Move(currentX , ++currentY);
+        }
+
+        @Override
         public Direction turnLeft() {
             return WEST;
         }
@@ -14,6 +19,11 @@ public enum Direction {
         }
     },
     WEST {
+        @Override
+        public Move gettMove(int currentX, int currentY) {
+            return new Move(--currentX, currentY);
+        }
+
         @Override
         public Direction turnLeft() {
             return SOUTH;
@@ -26,6 +36,11 @@ public enum Direction {
     },
     EAST {
         @Override
+        public Move gettMove(int currentX, int currentY) {
+            return new Move(++currentX, currentY);
+        }
+
+        @Override
         public Direction turnLeft() {
             return NORTH;
         }
@@ -37,6 +52,11 @@ public enum Direction {
     },
     SOUTH {
         @Override
+        public Move gettMove(int currentX, int currentY) {
+            return new Move(currentX , --currentY);
+        }
+
+        @Override
         public Direction turnLeft() {
             return EAST;
         }
@@ -47,6 +67,8 @@ public enum Direction {
         }
     };
 
+
+    public abstract Move gettMove(int currentX , int currentY);
     public abstract Direction turnLeft();
     public abstract Direction turnRight();
 

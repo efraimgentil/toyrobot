@@ -80,4 +80,45 @@ public class DirectionTest {
         assertThat(newDirection).isEqualTo(Direction.SOUTH);
     }
 
+    @Test
+    public void shouldReturnTheCorrectNextPositionWhenFacingNorth(){
+        Direction facing = Direction.NORTH;
+
+        Move move = facing.gettMove(0, 0);
+
+        assertThat(move.getX()).isEqualTo(0);
+        assertThat(move.getY()).isEqualTo(1);
+    }
+
+    @Test
+    public void shouldReturnTheCorrectNextPositionWhenFacingWest(){
+        Direction facing = Direction.WEST;
+
+        Move move = facing.gettMove(1, 1);
+
+        assertThat(move.getX()).isEqualTo(0);
+        assertThat(move.getY()).isEqualTo(1);
+    }
+
+    @Test
+    public void shouldReturnTheCorrectNextPositionWhenFacingSouth(){
+        Direction facing = Direction.SOUTH;
+
+        Move move = facing.gettMove(1, 1);
+
+        assertThat(move.getX()).isEqualTo(1);
+        assertThat(move.getY()).isEqualTo(0);
+    }
+
+    @Test
+    public void shouldReturnTheCorrectNextPositionWhenFacingEast(){
+        Direction facing = Direction.EAST;
+
+        Move move = facing.gettMove(0, 0);
+
+        assertThat(move.getX()).isEqualTo(1);
+        assertThat(move.getY()).isEqualTo(0);
+    }
+
+
 }
