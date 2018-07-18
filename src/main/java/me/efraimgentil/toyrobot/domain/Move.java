@@ -17,5 +17,5 @@ public class Move {
     public int getY() {
         return y;
     }
-    
+
 }
