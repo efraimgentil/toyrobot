@@ -12,7 +12,7 @@ public class DirectionTest {
     public void shouldReturnWestDirectionWhenTurningToLeftIfFacingNorth(){
         Direction facing = Direction.NORTH;
 
-        Direction newDirection = facing.turnLeft();
+        Direction newDirection = facing.turn(TurnDirection.LEFT);
 
         assertThat(newDirection).isEqualTo(Direction.WEST);
     }
@@ -21,7 +21,7 @@ public class DirectionTest {
     public void shouldReturnEastDirectionWhenTurningToRightIfFacingNorth(){
         Direction facing = Direction.NORTH;
 
-        Direction newDirection = facing.turnRight();
+        Direction newDirection = facing.turn(TurnDirection.RIGHT);
 
         assertThat(newDirection).isEqualTo(Direction.EAST);
     }
@@ -30,7 +30,7 @@ public class DirectionTest {
     public void shouldReturnSouthDirectionWhenTurningToLeftIfFacingWest(){
         Direction facing = Direction.WEST;
 
-        Direction newDirection = facing.turnLeft();
+        Direction newDirection = facing.turn(TurnDirection.LEFT);
 
         assertThat(newDirection).isEqualTo(Direction.SOUTH);
     }
@@ -39,7 +39,7 @@ public class DirectionTest {
     public void shouldReturnNorthDirectionWhenTurningToRightIfFacingWest(){
         Direction facing = Direction.WEST;
 
-        Direction newDirection = facing.turnRight();
+        Direction newDirection = facing.turn(TurnDirection.RIGHT);
 
         assertThat(newDirection).isEqualTo(Direction.NORTH);
     }
@@ -48,7 +48,7 @@ public class DirectionTest {
     public void shouldReturnEastDirectionWhenTurningToLeftIfFacingSouth(){
         Direction facing = Direction.SOUTH;
 
-        Direction newDirection = facing.turnLeft();
+        Direction newDirection = facing.turn(TurnDirection.LEFT);
 
         assertThat(newDirection).isEqualTo(Direction.EAST);
     }
@@ -57,7 +57,7 @@ public class DirectionTest {
     public void shouldReturnWestDirectionWhenTurningToRightIfFacingSouth(){
         Direction facing = Direction.SOUTH;
 
-        Direction newDirection = facing.turnRight();
+        Direction newDirection = facing.turn(TurnDirection.RIGHT);
 
         assertThat(newDirection).isEqualTo(Direction.WEST);
     }
@@ -66,7 +66,7 @@ public class DirectionTest {
     public void shouldReturnNorthDirectionWhenTurningToLeftIfFacingEast(){
         Direction facing = Direction.EAST;
 
-        Direction newDirection = facing.turnLeft();
+        Direction newDirection = facing.turn(TurnDirection.LEFT);
 
         assertThat(newDirection).isEqualTo(Direction.NORTH);
     }
@@ -75,7 +75,7 @@ public class DirectionTest {
     public void shouldReturnSouthDirectionWhenTurningToRightIfFacingEast(){
         Direction facing = Direction.EAST;
 
-        Direction newDirection = facing.turnRight();
+        Direction newDirection = facing.turn(TurnDirection.RIGHT);
 
         assertThat(newDirection).isEqualTo(Direction.SOUTH);
     }

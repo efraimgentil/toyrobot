@@ -31,7 +31,7 @@ public class ToyRobot {
 
     public ToyRobot putOnTable(Table table , PlacePosition placePosition){
         if (table.willFall(placePosition.getX(), placePosition.getY())) {
-            throw new RobotException(String.format("The position (%d,%d) will result int the Robot falling.", x, y));
+            throw new RobotException(String.format("The position (%d,%d) will result int the Robot falling.", placePosition.getX(), placePosition.getY()));
         }
         this.tableThatImOn = table;
         this.x = placePosition.getX();

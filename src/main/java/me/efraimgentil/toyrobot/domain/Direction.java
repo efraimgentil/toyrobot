@@ -1,21 +1,14 @@
 package me.efraimgentil.toyrobot.domain;
 
+import java.util.Arrays;
+import java.util.List;
+
 public enum Direction {
 
-    NORTH {
+     NORTH {
         @Override
         public Move getMove(int currentX, int currentY) {
             return new Move(currentX , ++currentY);
-        }
-
-        @Override
-        public Direction turnLeft() {
-            return WEST;
-        }
-
-        @Override
-        public Direction turnRight() {
-            return EAST;
         }
     },
     WEST {
@@ -23,31 +16,11 @@ public enum Direction {
         public Move getMove(int currentX, int currentY) {
             return new Move(--currentX, currentY);
         }
-
-        @Override
-        public Direction turnLeft() {
-            return SOUTH;
-        }
-
-        @Override
-        public Direction turnRight() {
-            return NORTH;
-        }
     },
     EAST {
         @Override
         public Move getMove(int currentX, int currentY) {
             return new Move(++currentX, currentY);
-        }
-
-        @Override
-        public Direction turnLeft() {
-            return NORTH;
-        }
-
-        @Override
-        public Direction turnRight() {
-            return SOUTH;
         }
     },
     SOUTH {
@@ -55,29 +28,22 @@ public enum Direction {
         public Move getMove(int currentX, int currentY) {
             return new Move(currentX , --currentY);
         }
-
-        @Override
-        public Direction turnLeft() {
-            return EAST;
-        }
-
-        @Override
-        public Direction turnRight() {
-            return WEST;
-        }
     };
 
-
     public abstract Move getMove(int currentX , int currentY);
-    public abstract Direction turnLeft();
-    public abstract Direction turnRight();
 
+    private static List<Direction> directions = Arrays.asList(NORTH,EAST,SOUTH,WEST);
     public Direction turn(TurnDirection turnDirection){
+        int idx = directions.indexOf(this);
         switch (turnDirection){
             case LEFT:
-                return turnLeft();
+                if(idx-1 < 0)
+                    return directions.get(directions.size()-1);
+                return directions.get(idx-1);
             case RIGHT:
-                return turnRight();
+                if(idx+1 >= directions.size())
+                    return directions.get(0);
+                return directions.get(idx+1);
             default:
                 throw new IllegalArgumentException("Invalid turn direction movement");
         }

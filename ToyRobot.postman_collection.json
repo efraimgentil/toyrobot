@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "42cb3e93-15d4-4b9b-b1f9-257533abbe5f",
+		"name": "ToyRobot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET REPORT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/report",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"report"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PLACE ROBOT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"x\" : 0\n\t,\"y\" : 0\n\t,\"direction\" : \"NORTH\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/place",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MOVE ROBOT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/move",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"move"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TURN LEFT ROBOT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/left",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"left"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TURN RIGHT ROBOT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/right",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"right"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

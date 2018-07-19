@@ -1,7 +1,5 @@
 package me.efraimgentil.toyrobot.domain;
 
-import me.efraimgentil.toyrobot.domain.Direction;
-
 public class PlacePosition {
 
     private int x;
