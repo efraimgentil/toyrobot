@@ -4,7 +4,7 @@ public enum Direction {
 
     NORTH {
         @Override
-        public Move gettMove(int currentX, int currentY) {
+        public Move getMove(int currentX, int currentY) {
             return new Move(currentX , ++currentY);
         }
 
@@ -20,7 +20,7 @@ public enum Direction {
     },
     WEST {
         @Override
-        public Move gettMove(int currentX, int currentY) {
+        public Move getMove(int currentX, int currentY) {
             return new Move(--currentX, currentY);
         }
 
@@ -36,7 +36,7 @@ public enum Direction {
     },
     EAST {
         @Override
-        public Move gettMove(int currentX, int currentY) {
+        public Move getMove(int currentX, int currentY) {
             return new Move(++currentX, currentY);
         }
 
@@ -52,7 +52,7 @@ public enum Direction {
     },
     SOUTH {
         @Override
-        public Move gettMove(int currentX, int currentY) {
+        public Move getMove(int currentX, int currentY) {
             return new Move(currentX , --currentY);
         }
 
@@ -68,9 +68,20 @@ public enum Direction {
     };
 
 
-    public abstract Move gettMove(int currentX , int currentY);
+    public abstract Move getMove(int currentX , int currentY);
     public abstract Direction turnLeft();
     public abstract Direction turnRight();
+
+    public Direction turn(TurnDirection turnDirection){
+        switch (turnDirection){
+            case LEFT:
+                return turnLeft();
+            case RIGHT:
+                return turnRight();
+            default:
+                throw new IllegalArgumentException("Invalid turn direction movement");
+        }
+    }
 
 
 }
